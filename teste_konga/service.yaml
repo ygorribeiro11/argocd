@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    meta.helm.sh/release-name: konga
+    meta.helm.sh/release-namespace: kong
+  creationTimestamp: "2022-12-20T17:14:13Z"
+  labels:
+    app.kubernetes.io/instance: konga
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: konga
+    helm.sh/chart: konga-1.0.3
+  name: konga
+  namespace: kong
+  resourceVersion: "16274515"
+  uid: e315e3ce-a184-48e7-b16b-89966c874181
+spec:
+  clusterIP: 172.20.211.166
+  clusterIPs:
+  - 172.20.211.166
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: http
+  selector:
+    app.kubernetes.io/instance: konga
+    app.kubernetes.io/name: konga
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

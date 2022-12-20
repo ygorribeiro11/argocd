@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: kong
+  creationTimestamp: "2022-12-08T02:05:06Z"
+  generation: 1
+  name: konga-ingress
+  namespace: kong
+  resourceVersion: "10393380"
+  uid: 777f63ea-02a7-4c82-81f8-ce697539690f
+spec:
+  rules:
+  - host: konga.linxio.net
+    http:
+      paths:
+      - backend:
+          service:
+            name: konga
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+status:
+  loadBalancer:
+    ingress:
+    - hostname: acb57ab512e15445793a8d0064aec0c7-32b21b1942d798f0.elb.us-east-1.amazonaws.com
